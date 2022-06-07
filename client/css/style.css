@@ -6,7 +6,83 @@ body {
 }
 
 .box {
-  width: 70.9mm;
-  height: 143.6mm;
+  width: 132.9mm;
+  height: 196.6mm;
   background-color: black;
 }
+
+.top-spacing {
+  height: 70px;
+  background-color: inherit;
+}
+
+.section-top {
+}
+
+.left {
+  /* border: 1px solid pink; */
+}
+
+.image {
+  height: 258px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0px -83px;
+  border-radius: 5px;
+}
+
+.right {
+  /* border: 1px solid green; */
+}
+
+/* .section-bottom {
+  border: 1px solid green;
+} */
+
+.group {
+  display: flex;
+  justify-content: space-around;
+}
+
+.group div {
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid #e37321;
+  padding: 3px 12px;
+  border-radius: 5px;
+  background-color: #e37321;
+}
+
+.hints-box {
+  margin-top: 27px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hint-title {
+  color: #fff;
+  font-size: 13px;
+}
+
+.hints-box span {
+}
+
+.instructions .title {
+  color: #fff;
+  font-size: 13px;
+}
+.instructions .content {
+  color: #000;
+  background: #fff;
+  border-radius: 5px;
+  margin-right: 4px;
+  font-size: 13px;
+  border: 3px solid orange;
+  padding: 5px 8px;
+}
+
+.instructions span {
+  font-size: 14px;
+  font-weight: 700;
+}
+
