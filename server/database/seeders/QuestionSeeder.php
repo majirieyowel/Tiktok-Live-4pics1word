@@ -17,43 +17,43 @@ class QuestionSeeder extends Seeder
     {
         $questions  = [
             [
-                'images/01.PNG',
+                'images/01.jpg',
                 'mouse'
             ],
             [
-                'images/02.PNG',
+                'images/02.jpg',
                 'ice'
             ],
             [
-                'images/03.PNG',
+                'images/03.jpg',
                 'box'
             ],
             [
-                'images/04.PNG',
+                'images/04.jpg',
                 'ring'
             ],
             [
-                'images/05.PNG',
+                'images/05.jpg',
                 'wave'
             ],
             [
-                'images/06.PNG',
+                'images/06.jpg',
                 'pet'
             ],
             [
-                'images/07.PNG',
+                'images/07.jpg',
                 'horse'
             ],
             [
-                'images/08.PNG',
+                'images/08.jpg',
                 'root'
             ],
             [
-                'images/09.PNG',
+                'images/09.jpg',
                 'bark'
             ],
             [
-                'images/10.PNG',
+                'images/10.jpg',
                 'firm'
             ],
         ];
