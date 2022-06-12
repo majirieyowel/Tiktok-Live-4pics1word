@@ -9,34 +9,36 @@ class CommentController extends Controller
 {
     public function saveComment(Request $request)
     {
-
-        $iscorrect = false;
-
         $active_question = DB::table('tracker')->first();
 
-        $question = DB::table('questions')->where('id', $active_question->current_question)->first();
+        if ($active_question) {
 
-        if ($request->answer == $question->answer) {
-            //success - update leader board 
-            $this->answerCorrect($request->name);
+            $question = DB::table('questions')->where('id', $active_question->current_question)->first();
 
-            DB::table('questions')->where('id', $active_question->id)->update([
-                'answered' => true
-            ]);
+            if (strtolower($request->answer) == strtolower($question->answer)) {
+                //success - update leader board 
+         
+                if (!DB::table('winner')->first()) {
 
-            $iscorrect = true;
+                    $this->answerCorrect($request->name, $request->image);
+
+                    DB::table('winner')->insert([
+                        'username' => $request->name,
+                        'answer' => $request->answer,
+                        'image' => $request->image
+                    ]);
+                }
+
+                DB::table('questions')->where('id', $active_question->current_question)->update([
+                    'answered' => true
+                ]);
+            }
         }
-
-        DB::table('answer_dump')->insert([
-            'username' => $request->name,
-            'answer' => $request->answer,
-            'iscorrect' => $iscorrect
-        ]);
 
         return response()->json(['status' => 'ok']);
     }
 
-    function answerCorrect($name)
+    function answerCorrect($name, $image)
     {
 
         //check if user exists in board 
@@ -52,7 +54,8 @@ class CommentController extends Controller
 
             DB::table('leader_boards')->insert([
                 'username' => $name,
-                'count' => 1
+                'count' => 1,
+                'image' => $image
             ]);
         }
     }

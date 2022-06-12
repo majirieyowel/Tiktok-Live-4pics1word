@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('leader_boards', function (Blueprint $table) {
             $table->id();
             $table->string('username');
+            $table->mediumText('image');
             $table->integer('count');
             $table->timestamps();
         });

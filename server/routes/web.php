@@ -19,9 +19,17 @@ use App\Http\Controllers\CommentController;
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+$router->get('reset', [
+    'uses' => 'ResetController@index'
+]);
+
+$router->get('get-random-question', [
+    'uses' => 'QuestionController@randomQuestion'
+]);
+
+$router->get('get-question/{id}', [
+    'uses' => 'QuestionController@getQuestion'
+]);
 
 $router->post('save-comment', [
     'uses' => 'CommentController@saveComment'

@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('answer_dump', function (Blueprint $table) {
+        Schema::create('winner', function (Blueprint $table) {
             $table->id();
             $table->string('username');
+            $table->mediumText('image');
             $table->string('answer');
-            $table->boolean('iscorrect')->default(0);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('answer_dump');
+        Schema::dropIfExists('winner');
     }
 };

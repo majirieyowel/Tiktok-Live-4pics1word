@@ -16,12 +16,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tracker')->insert([
-            'current_question' => 1
-        ]);
-
         $this->call([
             QuestionSeeder::class
         ]);
+        $question = DB::table('questions')
+            ->select("id", "image", "answered", "answer")
+            ->inRandomOrder()
+            ->where('answered', false)
+            ->first();
+
+        DB::table('tracker')->insert([
+            "current_question" => $question->id
+        ]);
+
+     
     }
 }
